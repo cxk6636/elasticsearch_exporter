@@ -156,6 +156,7 @@ func main() {
 	if *esExportIndicesMappings {
 		prometheus.MustRegister(collector.NewIndicesMappings(logger, httpClient, esURL))
 	}
+	prometheus.MustRegister(collector.NewCatMaster(logger, httpClient, esURL))
 
 	// create a http server
 	server := &http.Server{}
